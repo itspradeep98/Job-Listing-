@@ -1,6 +1,7 @@
 package com.pradeep.JobListing.controller;
 
-import com.pradeep.JobListing.PostRepository;
+import com.pradeep.JobListing.Repository.PostRepository;
+import com.pradeep.JobListing.Repository.SearchRepository;
 import com.pradeep.JobListing.model.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,9 @@ public class PostController {
 
     @Autowired
     PostRepository repo;
+
+    @Autowired
+    SearchRepository searchRepo;
     @ApiIgnore
     @RequestMapping(value="/")
     public void redirect(HttpServletResponse response) throws IOException {
@@ -37,7 +41,7 @@ public class PostController {
     // to search
     @GetMapping("/posts/{text}")
     public List<Post> search(@PathVariable String text){
-        return repo.findAll();
+        return searchRepo.findByText(text);
     }
 
 }

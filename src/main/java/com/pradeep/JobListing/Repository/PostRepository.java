@@ -1,4 +1,4 @@
-package com.pradeep.JobListing;
+package com.pradeep.JobListing.Repository;
 
 import com.pradeep.JobListing.model.Post;
 import org.springframework.data.mongodb.repository.MongoRepository;
