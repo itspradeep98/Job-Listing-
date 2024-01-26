@@ -27,11 +27,14 @@ public class PostController {
         return repo.findAll();
     }
 
+    // add post
     @PostMapping("/post")
     public Post addPost(@RequestBody Post post) {
 
         return repo.save(post);
     }
+
+    // to search
     @GetMapping("/posts/{text}")
     public List<Post> search(@PathVariable String text){
         return repo.findAll();
